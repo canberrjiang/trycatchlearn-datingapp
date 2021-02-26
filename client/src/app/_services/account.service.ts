@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { User } from '../_models/user';
 import { map } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = "https://localhost:5001/api/";
+  baseUrl = environment.apiUrl;
   // Declare a ReplaySubject which acts like a buffer object to hold the current user temporarily
   private currentUserSource = new ReplaySubject<User>(1);
 
